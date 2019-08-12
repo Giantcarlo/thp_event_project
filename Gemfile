@@ -54,7 +54,9 @@ group :development do
   # Better errors gem. Cuz who doesn't love better errors?
   gem "better_errors"
   gem "binding_of_caller"
+  gem "letter_opener"
 end
+
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
