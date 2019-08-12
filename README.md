@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Random event for the console: e = Event.create(title:"Soccer", start_date:DateTime.new(2020,2,3), duration:50, description:"A soccer tournament for young budding players", price:50, location:"Seattle", organizer:User.find(4))

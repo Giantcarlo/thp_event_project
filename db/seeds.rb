@@ -11,7 +11,7 @@ require 'faker'
 User.destroy_all
 
 
-10.times do 
+5.times do 
   first_name = Faker::Name.first_name
   User.create(
     first_name: first_name,

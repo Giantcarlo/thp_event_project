@@ -11,4 +11,13 @@ class UserMailer < ApplicationMailer
     # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
   end
+
+
+  def organizer_notification(event)
+    @organizer = event.organizer
+
+    @url  = 'http://events.fr/login' 
+    
+    mail(to: @organizer.email, subject: "Nouvelle inscription")
+  end 
 end
