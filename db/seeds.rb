@@ -10,9 +10,11 @@ require 'faker'
 
 User.destroy_all
 
+
 10.times do 
+  first_name = Faker::Name.first_name
   User.create(
-    first_name: Faker::Name.first_name,
+    first_name: first_name,
     last_name: Faker::Name.last_name,
     email: "#{first_name}@yopmail.com",
     encrypted_password: Faker::Internet.password(min_length: 8),
