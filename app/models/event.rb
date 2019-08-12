@@ -21,6 +21,9 @@ class Event < ApplicationRecord
   validate :duration_must_be_multiple_of_five
   validate :start_date_cannot_be_in_the_past
 
+  has_many :attendances
+  has_many :users, through: :attendances
+
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < DateTime.now
       errors.add(:start_date, "Start date can't be in the past")
