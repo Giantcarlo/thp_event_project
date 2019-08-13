@@ -3,4 +3,5 @@ class EventController < ApplicationController
   end
   def new
   end
+  
 end
