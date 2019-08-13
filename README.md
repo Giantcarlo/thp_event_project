@@ -25,27 +25,26 @@ Things you may want to cover:
 
 Random event for the console: e = Event.create(title:"Soccer", start_date:DateTime.new(2020,2,3), duration:50, description:"A soccer tournament for young budding players", price:50, location:"Seattle", organizer:User.find(4))
 
+class UserMailer < ApplicationMailer
+  default from: 'no-reply@events.fr'
+ 
+  def welcome_email(user)
+    #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
+    @user = user 
 
-    <!--Code qui affiche "se deconnecter" si on est connecté, sinon il affiche un dropdown avec "s'inscrire/se connecter"-->
-    <!--<%#if logged_in == true%>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mon Profil
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to "Mon profil", user_show_path, class:"dropdown-item" %>
-          <%= link_to "Se déconnecter", new_session_path, class:"dropdown-item" %>
-        </div>
-      </div>
-    <%else%>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Connexion
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to "S'inscrire", registrations_new_path, class:"dropdown-item" %>
-          <%= link_to "Se connecter", sessions_new_path, class:"dropdown-item" %>
-        </div>
-      </div>
-    <%end%>-->
-  <!--</div>-->
+    #on définit une variable @url qu'on utilisera dans la view d’e-mail
+    @url  = 'http://events.fr/login' 
+
+    # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
+    mail(to: @user.email, subject: 'Bienvenue chez nous !') 
+  end
+
+
+  def organizer_notification(event)
+    @organizer = event.organizer
+
+    @url  = 'http://events.fr/login' 
+    
+    mail(to: @organizer.email, subject: "Nouvelle inscription")
+  end 
+end
