@@ -31,6 +31,29 @@
         </li>
       </ul>
     </div>
+    <!--Code qui affiche "se deconnecter" si on est connecté, sinon il affiche un dropdown avec "s'inscrire/se connecter"-->
+    <%if user_signed_in? == true%>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mon Profil
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Mon profil", edit_user_registration_path, class:"dropdown-item" %>
+          <%= link_to "Se déconnecter", destroy_user_session_path, class:"dropdown-item" %>
+        </div>
+      </div>
+    <%else%>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Connexion
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "S'inscrire", new_user_registration_path, class:"dropdown-item" %>
+          <%= link_to "Se connecter", new_user_session_path, class:"dropdown-item" %>
+        </div>
+      </div>
+    <%end%>
+    </div>
     </nav>
 
 
