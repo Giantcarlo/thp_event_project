@@ -12,5 +12,6 @@ Bienvenue dans mon projet arnaque de Eventbrite! Quelques mots sur le projet:
 
 - J'ai fait jusqu'à la partie "afficher un évènement". Du coup j'arrive à en créer mais il n'y a pas de page "show" associée.
 
+
 Voila voila, à bientôt!
 
