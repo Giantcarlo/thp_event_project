@@ -30,6 +30,8 @@ gem 'faker'
 
 gem 'table_print'
 
+gem 'devise'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
