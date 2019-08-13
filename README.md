@@ -3,6 +3,8 @@ ruby '2.5.1'
 
 gem 'rails', '~> 5.2.3'
 
+Lien heroku: https://eventprojectthp.herokuapp.com/ 
+
 
 Bonjour cher(e) correcteur/trice,
 
