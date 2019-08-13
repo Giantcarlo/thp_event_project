@@ -1,0 +1,43 @@
+<%if @event%> 
+    <% if @event.errors.any? %>
+      <div class="alert alert-warning" role="alert">
+        <p>Nous n'avons pas réussi à créer ton évènement pour la (ou les) raison(s) suivante(s) :</p>
+        <ul>
+          <% @event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <%end%>
+<%end%>
+
+<div class="text-center mx-auto">
+  <div class = "mt-5">
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+        <%= label_tag 'Titre:' %><br>
+        <%= text_field_tag 'title'%>
+        <br /> <br />
+
+        <%= label_tag 'Date/time:' %><br>
+        <%= date_field 'datetime'%>
+        <br /> <br />
+
+
+        <%= label_tag 'Description:' %><br>
+        <%= text_area_tag 'description'%>
+        <br /> <br />
+
+
+        <%= label_tag 'Duration:' %><br>
+        <%= number_field_tag 'duration'%>
+        <br /> <br />
+
+
+        <%= submit_tag "Créer ton évènement", class:"btn btn-outline-primary" %>
+
+
+    <% end %>
+  </div>
+</div>
+
