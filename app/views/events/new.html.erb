@@ -19,8 +19,13 @@
         <%= text_field_tag 'title'%>
         <br /> <br />
 
+        <%= label_tag 'Endroit:' %><br>
+        <%= text_field_tag 'location'%>
+        <br /> <br />
+
+
         <%= label_tag 'Date/time:' %><br>
-        <%= date_field 'datetime'%>
+        <%= date_field_tag 'start_date'%>
         <br /> <br />
 
 
@@ -31,6 +36,10 @@
 
         <%= label_tag 'Duration:' %><br>
         <%= number_field_tag 'duration'%>
+        <br /> <br />
+
+        <%= label_tag 'Prix:' %><br>
+        <%= number_field_tag 'price'%>
         <br /> <br />
 
 
