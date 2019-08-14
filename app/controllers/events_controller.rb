@@ -5,10 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @organizer = Event.find(params[:id]).organizer
-    @attendees = []
-    @attendees << @event.users
-    puts @attendees
+    @organizer = @event.organizer
   end
 
   def new

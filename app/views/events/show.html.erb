@@ -9,36 +9,45 @@
   <p> Contacter le créateur : <%= mail_to @organizer.email %> </p>
 </div>
 
-<% if current_user != @organizer && @attendees.include?(current_user) == false%>
+<% if current_user != @organizer && @event.users.include?(current_user) == false%>
   <div class="container">
-    <button type="button" class="btn btn-primary btn-lg btn-block text-center"><%= link_to "S'inscrire à cet évènement", attendances_new_path, class:"text-white"%></button>
+    <button type="button" class="btn btn-primary btn-lg btn-block text-center"><%= link_to "S'inscrire à cet évènement", new_event_attendance_path(@event.id), class:"text-white"%></button>
   </div>
 <%end%>
+
+<% if current_user == @organizer %>
+  <div class="container">
+    <button type="button" class="btn btn-primary btn-lg btn-block text-center"><%= link_to "Voir toutes les personnes inscrites à ton evenemtent", event_attendances_path(@event.id), class:"text-white"%></button>
+  </div>
+<%end%>
+
 <br>
+
+
 <h2 class="text-center"> Liste des participants </h2><br>
-
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Adresse mail</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% i = 1 %>
-    <% @event.users.each do |attendee| %> 
-        <tr>
-          <th scope="row"><%= i %></th>
-            <td> <%= attendee.first_name %> <%= attendee.last_name %> </td>
-            <td> <%= attendee.email %> </td>
-            <td> <%= link_to('Voir le profil du participant', user_path(attendee)) %> </td>
-            <%i += 1 %>
-          </th>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Adresse mail</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% i = 1 %>
+      <% @event.users.each do |attendee| %> 
+          <tr>
+            <th scope="row"><%= i %></th>
+              <td> <%= attendee.first_name %> <%= attendee.last_name %> </td>
+              <td> <%= attendee.email %> </td>
+              <td> <%= link_to('Voir le profil du participant', user_path(attendee)) %> </td>
+              <%i += 1 %>
+            </th>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 

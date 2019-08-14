@@ -1,0 +1,32 @@
+
+<h2 class="text-center"> Liste des participants </h2><br>
+
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-danger">Danger</button>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Adresse mail</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% i = 1 %>
+      <% @event.users.each do |attendee| %> 
+        <tr>
+          <th scope="row"><%= i %></th>
+            <td> <%= attendee.first_name %> <%= attendee.last_name %> </td>
+            <td> <%= attendee.email %> </td>
+            <td> <%= link_to('Voir le profil du participant', user_path(attendee)) %> </td>
+            <%i += 1 %>
+          </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
