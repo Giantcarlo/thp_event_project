@@ -1,2 +1,19 @@
-<h1>Attendances#new</h1>
-<p>Find me in app/views/attendances/new.html.erb</p>
+<h5 class="card-header info-color white-text text-center py-4">
+  <strong>S'inscrire</strong>
+</h5>
+
+<%form_tag url_for(action: 'create'), method: "post" do%>
+    <%= label_tag 'Prénom:' %><br>
+    <%= text_field_tag 'first_name'%>
+    <br /> <br />
+
+    <%= label_tag 'Nom:' %><br>
+    <%= text_field_tag 'last_name'%>
+    <br /> <br />
+
+
+    <%= submit_tag "Créer ton évènement", class:"btn btn-outline-primary" %>
+
+<%end%>
+
+
