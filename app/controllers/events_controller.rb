@@ -4,6 +4,11 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
+    @organizer = Event.find(params[:id]).organizer
+    @attendees = []
+    @attendees << @event.users
+    puts @attendees
   end
 
   def new

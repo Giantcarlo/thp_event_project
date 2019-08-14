@@ -13,13 +13,12 @@ class Event < ApplicationRecord
     length: { in: 20..1000 }
   validates :price,
     presence: true,
-    numericality: { greater_than: 0 },
-    numericality: { less_than: 1000 }
+    numericality: { greater_than: 0, less_than: 1000 }
   validates :location,
     presence: true
 
   validate :duration_must_be_multiple_of_five
-  validate :start_date_must_be_after_now
+  validate :start_date_good?
 
   has_many :attendances
   has_many :users, through: :attendances
@@ -31,9 +30,12 @@ class Event < ApplicationRecord
     end
   end
 
-  def start_date_must_be_after_now
-    if start_date > Time.now ? true : 
-      errors.add(:start_date, "Ton evenement doit être au futur")
+  def start_date_good?
+    if start_date > Time.now
+      true 
+    else
+      errors.add(:start_date, "must be in the future")
     end
   end
+
 end
