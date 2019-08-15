@@ -1,9 +1,13 @@
 class EventsController < ApplicationController
+  before_action :has_photo, only: [:index]
+
   def index
     @events = Event.all
   end
 
   def show
+    puts '&' * 60
+    puts params 
     @event = Event.find(params[:id])
     @organizer = @event.organizer
   end
@@ -23,7 +27,7 @@ class EventsController < ApplicationController
 
     if @event.save 
       # si ça marche, il redirige vers la page d'index du site
-      flash[:success] = 'Evenement sauvegardé'
+      # flash[:success] = 'Evenement sauvegardé'
       redirect_to new_event_eventavatar_path(@event.id)
 
     else
@@ -37,5 +41,16 @@ class EventsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def has_photo
+    @events = Event.all
+    @events.each do |e|
+      if e.eventavatar.attached? == nil
+        Event.destroy(e.id)
+      end
+    end
   end
 end

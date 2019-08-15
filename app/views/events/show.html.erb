@@ -1,8 +1,9 @@
+
 <div class="rounded-top text-center">
   <h1>
     <%= @event.title %>
   </h1><br>
-  <%= image_tag @event.eventavatar, alt: 'event banner' %>
+  <%= image_tag @event.eventavatar.variant(resize:"400x400"), alt: 'event banner' %>
   <p> Description : <%= @event.description %> </p>
   <p> Lieu : <%= @event.location %> </p>
   <p> Date : <%= @event.start_date.strftime("%d-%m-%Y") %> </p>
