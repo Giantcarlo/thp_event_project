@@ -2,6 +2,7 @@
   <h1>
     <%= @event.title %>
   </h1><br>
+  <%= image_tag @event.eventavatar, alt: 'event banner' %>
   <p> Description : <%= @event.description %> </p>
   <p> Lieu : <%= @event.location %> </p>
   <p> Date : <%= @event.start_date.strftime("%d-%m-%Y") %> </p>

@@ -1,0 +1,7 @@
+<h1>Rajouter une photo!<h1>
+<h6>Celle-ci est obligatoire ;) <h6>
+
+<%= form_tag event_eventavatars_path(@event), multipart: true do %>
+  <%= file_field_tag :eventavatar %>
+  <%= submit_tag "Rajouter une photo" %>
+<% end %>

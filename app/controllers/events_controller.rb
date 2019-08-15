@@ -24,7 +24,7 @@ class EventsController < ApplicationController
     if @event.save 
       # si ça marche, il redirige vers la page d'index du site
       flash[:success] = 'Evenement sauvegardé'
-      redirect_to root_path
+      redirect_to new_event_eventavatar_path(@event.id)
 
     else
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)

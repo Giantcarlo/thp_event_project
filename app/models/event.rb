@@ -23,6 +23,7 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
   belongs_to :organizer, class_name: "User"
+  has_one_attached :eventavatar
 
   def duration_must_be_multiple_of_five
     if duration % 5 != 0
