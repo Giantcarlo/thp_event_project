@@ -1,1 +1,30 @@
-<h1>La liste de tous les utilisateurs!</h1>
+
+<h2 class="text-center"> Liste des participants </h2><br>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Adresse mail</th>
+        <th scope="col">Editer</th>
+        <th scope="col">Editer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% i = 1 %>
+      <% @users.each do |user| %> 
+          <tr>
+            <th scope="row"><%= i %></th>
+              <td> <%= user.first_name %> <%= user.last_name %> </td>
+              <td> <%= user.email %> </td>
+              <td> <%= link_to 'Editer', edit_admin_user_path(user), class:"btn btn-primary" %></td>
+              <td> <%= link_to 'Supprimer', admin_users_path(user), :method => "delete", class:"btn btn-danger" %></td>
+              <%i += 1 %>
+            </th>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

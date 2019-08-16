@@ -12,9 +12,8 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  scope 'superadmin', module: 'admin', as: 'admin' do
-    resources :users
-    resources :events
+  namespace :admin do
+    resources :users, :events 
   end
   
 

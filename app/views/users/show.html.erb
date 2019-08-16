@@ -6,6 +6,7 @@
     <h3>Email: <%= @user.email %></h3>
     <h3>Description:</h3>
     <p> <%= @user.description %></p> 
+    <%=link_to 'Modifier son profil', edit_user_path(@user)%>
   </div>
 </div>
 
