@@ -2,7 +2,6 @@ module Admin
 
   class ApplicationController < ::ApplicationController
 
-    # layout 'admin'
 
     before_action :only_admin
 

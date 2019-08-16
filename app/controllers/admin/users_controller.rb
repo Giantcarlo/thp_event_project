@@ -1,13 +1,14 @@
 module Admin
-
-
   class UsersController < ApplicationController
 
     def index
-      @users = User.all
+      @users = User.all.sort
     end
 
     def new
+
+    end
+    def create
 
     end
 
@@ -18,12 +19,10 @@ module Admin
   
     end
 
-    def delete
-
-      # @comment = Comment.find(params[:id])
-      # @comment.destroy
-      # redirect_to gossip_path(@comment.gossip.id)
-
+    def destroy
+      User.destroy(params[:id])
+      # flash[:success] = "User successfully deleted"
+      redirect_to admin_users_path
     end
 
   end
