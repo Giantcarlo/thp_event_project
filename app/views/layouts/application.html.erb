@@ -47,7 +47,7 @@
           <%= link_to "Mon profil", user_path(current_user.id), class:"dropdown-item" %>
           <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
           <% if current_user.admin == true%>
-            <%= link_to "Espace admin", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+            <%= link_to "Espace admin", admin_users_path, class:"dropdown-item" %>
           <%end%>
         </div>
       </div>

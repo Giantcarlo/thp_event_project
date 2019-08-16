@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     resources :eventavatars, only: [:create, :new]
   end
   resources :users
+
+  scope 'superadmin', module: 'admin', as: 'admin' do
+    resources :users
+    resources :events
+  end
   
 
 end
