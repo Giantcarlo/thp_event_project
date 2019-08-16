@@ -8,6 +8,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
     <!--Le JS pour le dropdown-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -44,6 +46,9 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "Mon profil", user_path(current_user.id), class:"dropdown-item" %>
           <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+          <% if current_user.admin == true%>
+            <%= link_to "Espace admin", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+          <%end%>
         </div>
       </div>
     <%else%>
