@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'events/index'
   get 'eventavatars/create'
   devise_for :users
   root "events#index"
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+    resources :events
   end
   
 

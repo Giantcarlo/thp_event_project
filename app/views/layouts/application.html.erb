@@ -38,7 +38,7 @@
       </ul>
     </div>
     <!--Code qui affiche "se deconnecter" si on est connecté, sinon il affiche un dropdown avec "s'inscrire/se connecter"-->
-    <%if user_signed_in? == true%>
+    <%if user_signed_in? %>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mon Profil
